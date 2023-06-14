@@ -32,9 +32,11 @@ class HeadHunterAPI(JobSiteAPI):
             "per_page": 50,  # количество вакансий
         }
         response = requests.get(self.url, params=params)
-        data = response.json()
-
-        return data
+        if response.status_code == 200:
+            data = response.json()
+            return data
+        else:
+            raise Exception(f"Request failed with status code: {response.status_code}")
 
     @staticmethod
     def clean_vacancies(data) -> list:
@@ -79,9 +81,11 @@ class SuperJobAPI(JobSiteAPI):
             "count": 50,  # количество вакансий
         }
         response = requests.get(self.url, headers=self.headers, params=params)
-        data = response.json()
-
-        return data
+        if response.status_code == 200:
+            data = response.json()
+            return data
+        else:
+            raise Exception(f"Request failed with status code: {response.status_code}")
 
     @staticmethod
     def clean_vacancies(data) -> list:
