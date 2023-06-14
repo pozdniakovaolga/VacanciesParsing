@@ -21,24 +21,23 @@ class Vacancy:
         """Возвращает информацию о вакансии: название(ссылка) """
         return f"{self.title} ({self.url})"
 
-
     @staticmethod
-    def _is_valid_title(title):
+    def _is_valid_title(title) -> bool:
         """Проверка названия вакансии """
         return len(title) > 0 and isinstance(title, str)
 
     @staticmethod
-    def _is_valid_url(url):
+    def _is_valid_url(url) -> bool:
         """Проверка названия ссылки на вакансию """
         return url.startswith("https://") and isinstance(url, str)
 
     @staticmethod
-    def _is_valid_salary(salary):
+    def _is_valid_salary(salary) -> bool:
         """Проверка названия зарплаты """
         return isinstance(salary, int)
 
     @staticmethod
-    def _is_valid_employer(employer):
+    def _is_valid_employer(employer) -> bool:
         """Проверка названия работодателя """
         return len(employer) > 0 and isinstance(employer, str)
 
