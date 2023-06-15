@@ -44,13 +44,13 @@ class Vacancy:
     def __setattr__(self, key, value):
         """Валидирует данные, которыми инициализируются атрибуты экземпляра """
         if key == "title" and not self._is_valid_title(value):
-            raise ValueError("Название вакансии не может быть пустым и должно быть строкой")
+            raise Exception("Название вакансии не может быть пустым и должно быть строкой")
         if key == "url" and not self._is_valid_url(value):
-            raise ValueError("Ссылка на вакансию должна быть строкой и начинаться с 'https://'")
+            raise Exception("Ссылка на вакансию должна быть строкой и начинаться с 'https://'")
         if key == "salary" and not self._is_valid_salary(value):
-            raise ValueError("Зарплата должна быть числом")
+            raise Exception("Зарплата должна быть числом")
         if key == "employer" and not self._is_valid_employer(value):
-            raise ValueError("Название работодателя не может быть пустым и должно быть строкой")
+            raise Exception("Название работодателя не может быть пустым и должно быть строкой")
         super().__setattr__(key, value)
 
     def __gt__(self, other) -> bool:
