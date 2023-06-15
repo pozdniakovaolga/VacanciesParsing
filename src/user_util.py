@@ -2,7 +2,7 @@ from src.vacancy_class import Vacancy
 
 
 def user_format(vacancies: list) -> list[Vacancy]:
-    """Из листа вакансий формирует читабельный для пользователя список из экземпляров класса Vacancy"""
+    """Из листа вакансий формирует наглядный для пользователя перечень экземпляров класса Vacancy"""
 
     vacancy_cls_list = []
     for vacancy in vacancies:
